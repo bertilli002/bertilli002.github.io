@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DGrid AI (DGAI)</title>
+<style>
+  :root {
+    --acid: #C6FF1E;
+    --ink: #0A0A0A;
+    --panel: #131313;
+    --line: #2A2A2A;
+    --text-dim: #9A9A9A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ink);
+    color: #F2F2F2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+  }
+  .grid-overlay {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  header {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  .mark {
+    width: 40px; height: 40px;
+    background: var(--acid);
+    clip-path: polygon(0 0, 70% 0, 100% 30%, 100% 100%, 0 100%);
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .ticker {
+    color: var(--acid);
+    font-family: "SF Mono", "Courier New", monospace;
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+
+  section { padding: 40px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  p { font-size: 1.05rem; max-width: 60ch; }
+  p + p { margin-top: 14px; }
+
+  .rule-list { margin-top: 20px; }
+  .rule {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+  }
+  .rule:first-child { border-top: none; }
+  .rule-status {
+    flex-shrink: 0;
+    font-family: "SF Mono", "Courier New", monospace;
+    font-size: 0.8rem;
+    color: var(--acid);
+    width: 60px;
+    padding-top: 2px;
+  }
+  .rule-text { font-size: 1rem; }
+  .rule-text b { color: #fff; }
+
+  .contract-box {
+    margin-top: 16px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 16px;
+    font-family: "SF Mono", "Courier New", monospace;
+    font-size: 0.82rem;
+    word-break: break-all;
+    color: var(--text-dim);
+  }
+  .contract-box .label {
+    color: var(--acid);
+    display: block;
+    margin-bottom: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.75rem;
+  }
+  .contract-box + .contract-box { margin-top: 10px; }
+
+  .disclosure {
+    background: var(--panel);
+    border-left: 3px solid var(--acid);
+    padding: 20px;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+  }
+  .disclosure b { color: #F2F2F2; }
+
+  footer {
+    padding: 32px 0 56px;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+  a { color: var(--acid); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="grid-overlay"></div>
+<div class="wrap">
+
+  <header>
+    <span class="mark"></span>
+    <h1>DGrid AI</h1>
+    <div class="ticker">DGAI · BNB Smart Chain</div>
+  </header>
+
+  <section>
+    <h2>WHAT THIS IS</h2>
+    <p>DGrid AI is an early-stage token on BNB Smart Chain, built with a compliance layer that governs how the token moves between wallets and liquidity pools.</p>
+    <p>This project is new and experimental. Liquidity is currently small. Anyone considering buying should understand the risks of an early-stage, low-liquidity token before doing so.</p>
+  </section>
+
+  <section>
+    <h2>HOW TRANSFERS WORK</h2>
+    <div class="rule-list">
+      <div class="rule">
+        <div class="rule-status">OPEN</div>
+        <div class="rule-text">Anyone can <b>buy</b> DGAI from a registered liquidity pool.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-status">OPEN</div>
+        <div class="rule-text">Anyone can <b>transfer</b> DGAI wallet-to-wallet.</div>
+      </div>
+      <div class="rule">
+        <div class="rule-status">GATED</div>
+        <div class="rule-text">Only wallets explicitly approved by the project can <b>sell</b> DGAI into a registered pool.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>CONTRACTS — BSC MAINNET</h2>
+    <div class="contract-box">
+      <span class="label">DGAI Token</span>
+      0x2ED910a68462915383e3Fc0859DD14c24d2daF8c
+    </div>
+    <div class="contract-box">
+      <span class="label">Compliance</span>
+      0xec4E1a2516e0B4afB9fE113B17B172Fe62D2B847
+    </div>
+  </section>
+
+  <section>
+    <h2>RISK DISCLOSURE</h2>
+    <div class="disclosure">
+      <b>This is an early-stage project, not financial advice.</b> Liquidity is limited, price can move sharply on small trades, and the token's sell mechanism is restricted by design. Do your own research before interacting with this contract.
+    </div>
+  </section>
+
+  <footer>
+    Contact: <a href="mailto:hello@dgridai.example">hello@dgridai.example</a>
+  </footer>
+
+</div>
+</body>
+</html>
